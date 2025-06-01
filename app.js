@@ -7,7 +7,8 @@ import authRouter from './routes/auth.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
-import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
+// import arcjetMiddleware from "./middlewares/arcjet.middleware.js";
+import workflowRoutes from "./routes/workflow.routes.js";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cookieParser()); // Reads cookies from incoming requests so our apps can
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/subscriptions', subscriptionRouter);
+app.use('/api/v1/workflows', workflowRoutes)
 
 
 app.use(errorMiddleware);
